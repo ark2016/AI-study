@@ -1,6 +1,3 @@
-import array
-
-
 class LinearRegression:
 
     def __init__(self, fit_intercept=True, normalize=False, copy_X=True):
