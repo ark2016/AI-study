@@ -10,25 +10,25 @@ Ridge-регрессия вводит штраф за величину коэф�
 Пусть всё как в линейной регрессии. Вводим гиперпараметр λ≥0\lambda\ge0.
 
 ### 3. Функция потерь
-
-J(θ)=12m∥Xθ−y∥22+λ2m∥θ∥22.J(\theta)=\frac{1}{2m}\|X\theta - y\|_2^2 + \frac{\lambda}{2m}\|\theta\|_2^2.
-
+$$
+J(\theta)=\frac{1}{2m}\|X\theta - y\|_2^2 + \frac{\lambda}{2m}\|\theta\|_2^2.
+$$
 Градиент:
-
-∇θJ(θ)=1mX⊤(Xθ−y)+λmθ.\nabla_\theta J(\theta) =\frac{1}{m}X^\top(X\theta - y) + \frac{\lambda}{m}\theta.
-
+$$
+\nabla_\theta J(\theta) =\frac{1}{m}X^\top(X\theta - y) + \frac{\lambda}{m}\theta.
+$$
 Приравняв к нулю, получаем нормальное уравнение
-
-(X⊤X+λI)θ=X⊤y.(X^\top X + \lambda I)\theta = X^\top y.
-
-**Доказательство:** аналогично линейной регрессии с добавлением производной по θ\theta от ∥θ∥22\|\theta\|_2^2 ([mathworks.com](https://www.mathworks.com/matlabcentral/cody/problems/44734?utm_source=chatgpt.com "Solve the 2-norm Regularization Problem - MATLAB Cody"), [mathworks.com](https://www.mathworks.com/matlabcentral/answers/410642-how-to-reduce-the-large-condition-number-of-matrix?utm_source=chatgpt.com "How to reduce the large condition number of matrix - MathWorks")).
+$$
+(X^\top X + \lambda I)\theta = X^\top y.
+$$
+**Доказательство:** аналогично линейной регрессии с добавлением производной по $\theta$ от $\|\theta\|_2^2$ ([mathworks.com](https://www.mathworks.com/matlabcentral/cody/problems/44734?utm_source=chatgpt.com "Solve the 2-norm Regularization Problem - MATLAB Cody"), [mathworks.com](https://www.mathworks.com/matlabcentral/answers/410642-how-to-reduce-the-large-condition-number-of-matrix?utm_source=chatgpt.com "How to reduce the large condition number of matrix - MathWorks")).
 
 ### 4. Правило предсказания
 
 - **Закрытое выражение:**
     
 
-θ^=(X⊤X+λI)−1X⊤y.\hat\theta = (X^\top X + \lambda I)^{-1}X^\top y.
+$\hat\theta = (X^\top X + \lambda I)^{-1}X^\top y.$
 
 - **Псевдокод (градиентный спуск):**
     
@@ -48,12 +48,11 @@ J(θ)=12m∥Xθ−y∥22+λ2m∥θ∥22.J(\theta)=\frac{1}{2m}\|X\theta - y\|_2^
 
 Пусть те же данные, добавим λ=1:
 
-X=(12),  y=(23),  λ=1.X=\begin{pmatrix}1\\2\end{pmatrix},\;y=\begin{pmatrix}2\\3\end{pmatrix},\;\lambda=1.
+$X=\begin{pmatrix}1\\2\end{pmatrix},\;y=\begin{pmatrix}2\\3\end{pmatrix},\;\lambda=1.$
 
 Тогда
 
-θ^=(X⊤X+λI)−1X⊤y=(5+1)−1⋅8=86≈1.333.\hat\theta =\bigl(X^\top X + \lambda I\bigr)^{-1}X^\top y =\bigl(5+1\bigr)^{-1}\cdot8=\tfrac{8}{6}\approx1.333.
-
+$\hat\theta =\bigl(X^\top X + \lambda I\bigr)^{-1}X^\top y =\bigl(5+1\bigr)^{-1}\cdot8=\tfrac{8}{6}\approx1.333.$
 Предсказания: 1.333 и 2.667.
 
 ### 6. Практические советы и варианты
