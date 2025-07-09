@@ -7,22 +7,29 @@ Ridge-регрессия вводит штраф за величину коэф�
 
 ### 2. Математическая формулировка
 
-Пусть всё как в линейной регрессии. Вводим гиперпараметр λ≥0\lambda\ge0.
+Пусть всё как в линейной регрессии. Вводим гиперпараметр $\lambda \geq 0$.
 
 ### 3. Функция потерь
-$J(\theta)=\frac{1}{2m}\|X\theta - y\|_2^2 + \frac{\lambda}{2m}\|\theta\|_2^2.$
-Градиент:
-$\nabla_\theta J(\theta) =\frac{1}{m}X^\top(X\theta - y) + \frac{\lambda}{m}\theta.$
-Приравняв к нулю, получаем нормальное уравнение
-$(X^\top X + \lambda I)\theta = X^\top y.$
+
+Функция потерь с L2-регуляризацией:
+
+$$J(\theta) = \frac{1}{2m}\|X\theta - y\|_2^2 + \frac{\lambda}{2m}\|\theta\|_2^2$$
+
+Градиент функции потерь:
+
+$$\nabla_\theta J(\theta) = \frac{1}{m}X^\top(X\theta - y) + \frac{\lambda}{m}\theta$$
+
+Приравняв градиент к нулю, получаем нормальное уравнение:
+
+$$(X^\top X + \lambda I)\theta = X^\top y$$
+
 **Доказательство:** аналогично линейной регрессии с добавлением производной по $\theta$ от $\|\theta\|_2^2$ ([mathworks.com](https://www.mathworks.com/matlabcentral/cody/problems/44734?utm_source=chatgpt.com "Solve the 2-norm Regularization Problem - MATLAB Cody"), [mathworks.com](https://www.mathworks.com/matlabcentral/answers/410642-how-to-reduce-the-large-condition-number-of-matrix?utm_source=chatgpt.com "How to reduce the large condition number of matrix - MathWorks")).
 
 ### 4. Правило предсказания
 
 - **Закрытое выражение:**
-    
 
-$\hat\theta = (X^\top X + \lambda I)^{-1}X^\top y.$
+  $$\hat\theta = (X^\top X + \lambda I)^{-1}X^\top y$$
 
 - **Псевдокод (градиентный спуск):**
     
